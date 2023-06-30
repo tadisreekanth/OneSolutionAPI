@@ -1,0 +1,6 @@
+framework module OneSolutionAPI {
+  umbrella header "OneSolutionAPI-umbrella.h"
+
+  export *
+  module * { export * }
+}

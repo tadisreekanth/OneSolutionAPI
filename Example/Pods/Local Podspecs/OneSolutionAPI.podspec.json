@@ -1,9 +1,9 @@
 {
   "name": "OneSolutionAPI",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A short description of OneSolutionAPI.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/sreekanth reddy Tadi/OneSolutionAPI",
+  "homepage": "https://github.com/tadisreekanth/OneSolutionAPI",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,11 @@
     "sreekanth reddy Tadi": "sreekanth.t.bs@gmail.com"
   },
   "source": {
-    "git": "https://github.com/sreekanth reddy Tadi/OneSolutionAPI.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/tadisreekanth/OneSolutionAPI.git",
+    "tag": "0.0.1"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "13.0"
   },
   "source_files": "OneSolutionAPI/Classes/**/*"
 }
