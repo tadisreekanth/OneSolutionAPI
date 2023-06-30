@@ -1,6 +1,8 @@
 PODS:
+  - CryptoSwift (1.7.1)
   - Nimble (10.0.0)
-  - OneSolutionAPI (0.0.1)
+  - OneSolutionAPI (0.0.1):
+    - CryptoSwift
   - Quick (2.2.1)
 
 DEPENDENCIES:
@@ -10,6 +12,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - CryptoSwift
     - Nimble
     - Quick
 
@@ -18,8 +21,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
+  CryptoSwift: d3d18dc357932f7e6d580689e065cf1f176007c1
   Nimble: 5316ef81a170ce87baf72dd961f22f89a602ff84
-  OneSolutionAPI: cf5c05270c413d32599dd07e33f37ae9fae787c2
+  OneSolutionAPI: ceadf9a70c5d0a6f50d8146ce6883ce591a2c94c
   Quick: f5754d69b7013f5864c29aab9ae6f0c79c5bc200
 
 PODFILE CHECKSUM: 349330c420bd1f00aec4b3f45bb201399572a550

@@ -9,7 +9,7 @@
     "file": "LICENSE"
   },
   "authors": {
-    "sreekanth reddy Tadi": "sreekanth.t.bs@gmail.com"
+    "tadisreekanth": "sreekanth.t.bs@gmail.com"
   },
   "source": {
     "git": "https://github.com/tadisreekanth/OneSolutionAPI.git",
@@ -18,5 +18,13 @@
   "platforms": {
     "ios": "13.0"
   },
-  "source_files": "OneSolutionAPI/Classes/**/*"
+  "source_files": [
+    "OneSolutionAPI/*.{h,m,swift}",
+    "OneSolutionAPI/**/*.{h,m,swift}"
+  ],
+  "dependencies": {
+    "CryptoSwift": [
+
+    ]
+  }
 }

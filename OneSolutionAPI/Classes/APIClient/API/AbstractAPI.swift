@@ -29,8 +29,8 @@ extension AbstractAPI {
 //            showActivityManager()
         }
         if endPoint.method == .POST {
-            print(log: endPoint.url?.absoluteString ?? "")
-            print(log: endPoint.body ?? "")
+//            print(log: endPoint.url?.absoluteString ?? "")
+//            print(log: endPoint.body ?? "")
         }
 
         let result = await self.call(endPoint: endPoint)
@@ -41,14 +41,14 @@ extension AbstractAPI {
         switch result {
         case .success(let data):
             let decryptedData = data?.decryptedData
-            print(log: endPoint.url?.absoluteString ?? "")
-            print(log: String(data: decryptedData ?? Data(), encoding: .utf8) ?? "")
+//            print(log: endPoint.url?.absoluteString ?? "")
+//            print(log: String(data: decryptedData ?? Data(), encoding: .utf8) ?? "")
             return .success(decryptedData)
         case .failure(let error):
             switch error {
-            case .errorMessage(let errorMessage):
-                print(log: endPoint.url?.absoluteString ?? "")
-                print(log: errorMessage)
+            case .errorMessage(let errorMessage): break
+//                print(log: endPoint.url?.absoluteString ?? "")
+//                print(log: errorMessage)
             default:
                 break
             }
