@@ -1,6 +1,6 @@
 # OneSolutionAPI
 
-[![CI Status](https://img.shields.io/travis/sreekanth reddy Tadi/OneSolutionAPI.svg?style=flat)](https://travis-ci.org/sreekanth reddy Tadi/OneSolutionAPI)
+[![CI Status](https://img.shields.io/travis/tadisreekanth/OneSolutionAPI.svg?style=flat)](https://travis-ci.org/tadisreekanth/OneSolutionAPI)
 [![Version](https://img.shields.io/cocoapods/v/OneSolutionAPI.svg?style=flat)](https://cocoapods.org/pods/OneSolutionAPI)
 [![License](https://img.shields.io/cocoapods/l/OneSolutionAPI.svg?style=flat)](https://cocoapods.org/pods/OneSolutionAPI)
 [![Platform](https://img.shields.io/cocoapods/p/OneSolutionAPI.svg?style=flat)](https://cocoapods.org/pods/OneSolutionAPI)
@@ -22,7 +22,7 @@ pod 'OneSolutionAPI'
 
 ## Author
 
-sreekanth reddy Tadi, sreekanth.t.bs@gmail.com
+sreekanthtadi, sreekanth.t.bs@gmail.com
 
 ## License
 
