@@ -7,10 +7,10 @@
 import Foundation
 
 protocol APIEndPoint {
-    var url:    URL? {set get}
-    var method: RequestMethod {set get}
-    var header: [String: String]? {set get}
-    var body:   [String: Any]? {set get}
+    var path    :   String? { set get }
+    var method  :   RequestMethod {set get}
+    var header  :   [String: String]? {set get}
+    var body    :   [String: Any]? {set get}
 }
 
 extension APIEndPoint {
@@ -22,5 +22,13 @@ extension APIEndPoint {
             return nil
         }
         return data.encryptedData
+    }
+    
+    var url: URL? {
+        guard let base = APIClient.shared?.route?.value else { return nil }
+        guard let urlString = path,
+              let url = URL(string: base + "/" + urlString)
+        else { return nil }
+        return url
     }
 }

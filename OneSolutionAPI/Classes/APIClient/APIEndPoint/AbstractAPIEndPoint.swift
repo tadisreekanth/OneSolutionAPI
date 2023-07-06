@@ -9,17 +9,17 @@
 import Foundation
 
 struct AbstractAPIEndPoint: APIEndPoint {  
-    var url:    URL?
-    var method: RequestMethod
-    var header: [String : String]?
-    var body:   [String : Any]?
+    var path    :   String?
+    var method  :   RequestMethod
+    var header  :   [String : String]?
+    var body    :   [String : Any]?
     
-    init(url: String,
+    init(path: String,
          method: RequestMethod = .GET,
          header: [String: String]? = nil,
          body: [String: Any]? = nil) {
         
-        self.url    = URL(string: url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")
+        self.path   = path
         self.method = method
         self.header = header ?? [:]
         self.body   = body

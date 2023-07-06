@@ -10,12 +10,12 @@ import Foundation
 
 typealias APIResult = Result<Data, ResultError>
 
-protocol APIClient {
+protocol APIService {
     @available(iOS 13.0.0, *)
     func call(endPoint: APIEndPoint) async -> Result<Data?, ResultError>
 }
 
-extension APIClient {
+extension APIService {
     
     @available(iOS 13.0.0, *)
     func call(endPoint: APIEndPoint) async -> Result<Data?, ResultError> {

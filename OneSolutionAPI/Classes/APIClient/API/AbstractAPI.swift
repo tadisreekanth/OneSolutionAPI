@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol AbstractAPI: APIClient {
+protocol AbstractAPI: APIService {
     @available(iOS 13.0.0, *)
     func callAPI(endPoint: APIEndPoint, showActivity: Bool) async -> Result<Data?, ResultError>
 }
@@ -16,7 +16,7 @@ protocol AbstractAPI: APIClient {
 extension AbstractAPI {
     @available(iOS 13.0.0, *)
     func callAPI(endPoint: APIEndPoint, showActivity: Bool = true) async -> Result<Data?, ResultError> {
-        guard let _ = endPoint.url else {
+        guard let _ = endPoint.path else {
             return .failure(.invalidURL)
         }
         guard Network.isReachable else {

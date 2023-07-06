@@ -7,10 +7,7 @@
 
 import Foundation
 import UIKit
-
-var kDeviceId: String {
-    return UIDevice.current.identifierForVendor?.uuidString ?? ""
-}
+import OneSolutionUtility
 
 @available(iOS 13.0.0, *)
 struct LoginAPI: AbstractAPI {
@@ -19,17 +16,27 @@ struct LoginAPI: AbstractAPI {
 
 extension LoginAPI {
     
+    private var appConstants: AppConstants? {
+        APIClient.shared?.appConstants
+    }
+
+    private var urlString: String {
+        APIClient.shared?.path?.login ?? ""
+    }
+    
     func loginWith(userName: String,
                    password: String) async -> Result<Login, ResultError> {
+        let appVersion = appConstants?.appVersion ?? "1.0"
+        let bundleVersion = appConstants?.buildVersion ?? "1.0"
         let params = NSMutableDictionary ()
         params.setValue(userName, forKey: "username")
         params.setValue(password, forKey: "password")
         params.setValue(kDeviceId, forKey: "deviceid")
         params.setValue("", forKey: "devicetoken")
         params.setValue("iOS", forKey: "platform")
-        params.setValue("\(kAppVersion) (\(kAppBuild))", forKey: "version")
+        params.setValue("\(appVersion) (\(bundleVersion))", forKey: "version")
         
-        let endPoint = AbstractAPIEndPoint(url: ServiceAPI.shared.URL_Login,
+        let endPoint = AbstractAPIEndPoint(path: urlString,
                                            method: .POST,
                                            body: params as? [String : Any])
         switch await self.callAPI(endPoint: endPoint) {
