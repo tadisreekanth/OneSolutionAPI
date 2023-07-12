@@ -31,7 +31,7 @@ extension LoginAPI {
         let params = NSMutableDictionary ()
         params.setValue(userName, forKey: "username")
         params.setValue(password, forKey: "password")
-        params.setValue(kDeviceId, forKey: "deviceid")
+        await params.setValue(UIDevice.deviceID, forKey: "deviceid")
         params.setValue("", forKey: "devicetoken")
         params.setValue("iOS", forKey: "platform")
         params.setValue("\(appVersion) (\(bundleVersion))", forKey: "version")
