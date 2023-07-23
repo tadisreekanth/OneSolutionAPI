@@ -13,4 +13,5 @@ public protocol APIRoute: AnyObject {
 
 public protocol APIPath: AnyObject {
     var login: String { get }
+    var graphData: String { get }
 }

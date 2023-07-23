@@ -7,6 +7,7 @@
 //
 
 import CryptoSwift
+import OneSolutionUtility
 
 let AESkey = "AbcDefGhILmnoPQr"
 
@@ -31,12 +32,6 @@ extension Data {
     }
 }
 
-
-extension String {
-    var trimmed: String {
-        return self.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-}
 
 extension String {
     var aesEncrypted: String? {
