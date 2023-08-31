@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ResultError: Error {
+public enum ResultError: Error {
     case invalidURL
     case decode
     case noResponse
@@ -16,7 +16,7 @@ enum ResultError: Error {
     case errorMessage(String)
 }
 
-extension ResultError {
+public extension ResultError {
     var message: String {
         switch self {
         case .connectionReset: return "Network Connection reset, Please check the internet availability"

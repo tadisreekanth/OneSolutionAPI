@@ -14,7 +14,7 @@ class UserData {
     var user: UserBean
             
     deinit {
-        print(log: "deinit \(type(of: self))")
+//        print(log: "deinit \(type(of: self))")
     }
 
     init() { user = UserBean () }
