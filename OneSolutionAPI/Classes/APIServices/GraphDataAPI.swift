@@ -7,16 +7,14 @@
 
 import Foundation
 
-struct HomeAPI: AbstractAPI {
-    static var instance: HomeAPI { HomeAPI() }
+public struct HomeAPI: AbstractAPI {
+    public static var instance: HomeAPI { HomeAPI() }
 }
 
-extension HomeAPI {
-    
+public extension HomeAPI {
     private var userId: String {
         "\(UserData.shared.user.userID ?? 0)"
     }
-    
     private var endPoint: AbstractAPIEndPoint {
         return AbstractAPIEndPoint(path: APIClient.shared?.path?.graphData ?? "",
                                    method: .POST,

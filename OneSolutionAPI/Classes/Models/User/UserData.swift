@@ -7,16 +7,16 @@
 
 import Foundation
 
-class UserData {
+public class UserData {
     
-    static let shared: UserData = UserData()
+    public static let shared: UserData = UserData()
     
-    var user: UserBean
+    public var user: UserBean
             
     deinit {
 //        print(log: "deinit \(type(of: self))")
     }
 
-    init() { user = UserBean () }
+    public init() { user = UserBean () }
     
 }

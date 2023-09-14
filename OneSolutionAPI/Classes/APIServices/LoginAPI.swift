@@ -10,17 +10,15 @@ import UIKit
 import OneSolutionUtility
 
 @available(iOS 13.0.0, *)
-struct LoginAPI: AbstractAPI {
-    static var instance: LoginAPI { LoginAPI() }
+public struct LoginAPI: AbstractAPI {
+    public static var instance: LoginAPI { LoginAPI() }
 }
 
-extension LoginAPI {
-    
+public extension LoginAPI {
     private var appConstants: AppConstants? {
         APIClient.shared?.appConstants
     }
-
-    private var urlString: String {
+    private var path: String {
         APIClient.shared?.path?.login ?? ""
     }
     
@@ -36,14 +34,14 @@ extension LoginAPI {
         params.setValue("iOS", forKey: "platform")
         params.setValue("\(appVersion) (\(bundleVersion))", forKey: "version")
         
-        let endPoint = AbstractAPIEndPoint(path: urlString,
+        let endPoint = AbstractAPIEndPoint(path: path,
                                            method: .POST,
                                            body: params as? [String : Any])
+        
         switch await self.callAPI(endPoint: endPoint) {
         case .success(let data):
             guard let data = data else { return .failure(.unknown) }
             if let model = data.decode(Login.self), model.statusCode == 200 {
-                self.updateUserData(with: model)
                 return .success(model)
             } else if let model = data.lowerCasedKeysData.decode(GenericModel.self) {
                 if let errorMessage = model.message {
@@ -56,9 +54,5 @@ extension LoginAPI {
         case .failure(let error):
             return .failure(error)
         }
-    }
-        
-    func updateUserData(with model: Login) {
-        UserData.shared.user.update(with: model)
     }
 }

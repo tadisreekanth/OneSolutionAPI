@@ -8,26 +8,24 @@
 
 import Foundation
 
-struct GenericMessageModel: Codable {
+public struct GenericMessageModel: Codable {
+    public let status: String?
+    public let statusCode: Int?
+    public let message: String?
+    public let data: String?
     
-    let status: String?
-    let statusCode: Int?
-    let message: String?
-    let data: String?
-    
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case status, message, data
         case statusCode = "statuscode"
     }
-    
 }
 
-struct GenericModel: Codable {
-    let message: String?
-    let status: String?
-    let statusCode: Int?
+public struct GenericModel: Codable {
+    public let message: String?
+    public let status: String?
+    public let statusCode: Int?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case message, status
         case statusCode = "statuscode"
     }

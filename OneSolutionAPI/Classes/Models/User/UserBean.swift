@@ -8,41 +8,41 @@
 import Foundation
 import OneSolutionUtility
 
-class UserBean: ObservableObject {
+public class UserBean: ObservableObject {
     
-    @Published var userID: Int?
-    var userDetails = UserDetails ()
+    @Published public var userID: Int?
+    public var userDetails = UserDetails ()
     
-    init() { }
+    public init() { }
     
-    func update(with login: Login) {
+    public func update(with login: Login) {
         userID = login.userId
         userDetails.update(with: login)
     }
     
-    func remove() {
+    public func remove() {
         userDetails = UserDetails()
         userID = nil
     }
 }
 
 
-class UserDetails {
+public class UserDetails {
     
-    var companyId: Int?
-    var companyName: String?
-    var designation: String?
-    var enableManualSerialSearch: Bool?
-    var enableAustraliaAnnotation: Bool?
-    var enableAustraliaFieldsInMobile: Bool?
-    var isExternalUser:Bool?
+    public var companyId: Int?
+    public var companyName: String?
+    public var designation: String?
+    public var enableManualSerialSearch: Bool?
+    public var enableAustraliaAnnotation: Bool?
+    public var enableAustraliaFieldsInMobile: Bool?
+    public var isExternalUser:Bool?
     
-    var companyDetails = [CompanyDetails] ()
-    var userRoles = [UserRole] ()
+    public var companyDetails = [CompanyDetails] ()
+    public var userRoles = [UserRole] ()
     
-    init() { }
+    public init() { }
     
-    func update(with login: Login) {
+    public func update(with login: Login) {
         self.companyId = login.companyId
         self.companyName = login.companyName
         self.designation = login.designation

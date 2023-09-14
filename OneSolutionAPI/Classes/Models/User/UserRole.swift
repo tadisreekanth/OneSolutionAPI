@@ -11,29 +11,29 @@ import OneSolutionUtility
 var M_TEAM_LEAD_SIGN_OFF = false
 var M_PROCESS_WO_ADD_SERVICE = false
 
-class UserRole {
+public class UserRole {
     
-    var navigated = false
-    var role: Role?
-    var displayName: String?
+    public var navigated = false
+    public var role: Role?
+    public var displayName: String?
     
 //    var storyBoard: Storyboard?
-    var vcIdentifier: String?
+    public var vcIdentifier: String?
     
     
     deinit {
         print(log: "deinit \(type(of: self))")
     }
     
-    init() { }
+    public init() { }
     
-    init(role: String) {
+    public init(role: String) {
         self.role = Role(rawValue: role)
         moduleName ()
     }
     
     
-    func moduleName () {
+    public func moduleName () {
         if let name = role {
             switch name {
             case .serial_details:
@@ -89,7 +89,7 @@ class UserRole {
     }
 }
 
-enum Role: String {
+public enum Role: String {
     case serial_details                 = "M_SERIAL_DETAILS"
     case process_workorder              = "M_PROCESS_WORK_ORDER_NEW"
     case general_checklist              = "M_GENERAL_CHK_LIST"
