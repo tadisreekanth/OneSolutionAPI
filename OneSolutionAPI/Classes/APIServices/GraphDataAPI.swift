@@ -12,18 +12,18 @@ struct HomeAPI: AbstractAPI {
 }
 
 extension HomeAPI {
-
+    
     private var userId: String {
         "\(UserData.shared.user.userID ?? 0)"
     }
     
+    private var endPoint: AbstractAPIEndPoint {
+        return AbstractAPIEndPoint(path: APIClient.shared?.path?.graphData ?? "",
+                                   method: .POST,
+                                   body: ["userId": userId])
+    }
+    
     func fetchGraphData() async -> Result<GraphData, ResultError> {
-        let params = NSMutableDictionary ()
-        params.setValue(userId, forKey: "userId")
-
-        let endPoint = AbstractAPIEndPoint(path: APIClient.shared?.path?.graphData ?? "",
-                                           method: .POST,
-                                           body: params as? [String: Any])
         switch await self.callAPI(endPoint: endPoint) {
         case .success(let data):
             guard let data = data else {
@@ -43,5 +43,4 @@ extension HomeAPI {
             return .failure(error)
         }
     }
-
 }
