@@ -32,7 +32,7 @@ public extension LoginAPI {
         await params.setValue(UIDevice.deviceID, forKey: "deviceid")
         params.setValue("", forKey: "devicetoken")
         params.setValue("iOS", forKey: "platform")
-        params.setValue("\(appVersion) (\(bundleVersion))", forKey: "version")
+        params.setValue("\(appVersion)(\(bundleVersion))", forKey: "version")
         
         let endPoint = AbstractAPIEndPoint(path: path,
                                            method: .POST,

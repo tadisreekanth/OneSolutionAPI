@@ -8,7 +8,7 @@
 import Foundation
 import OneSolutionUtility
 
-public enum QuantumValue: Decodable {
+public enum QuantumValue: Codable {
     case int(Int), string(String), bool(Bool), double(Double)
 }
 

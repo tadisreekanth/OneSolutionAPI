@@ -14,6 +14,11 @@ protocol AbstractAPI: APIService {
 }
 
 extension AbstractAPI {
+    
+    public var userId: String {
+        "\(UserData.shared.user.userID ?? 0)"
+    }
+    
     @available(iOS 13.0.0, *)
     func callAPI(endPoint: APIEndPoint, showActivity: Bool = true) async -> Result<Data?, ResultError> {
         guard let _ = endPoint.path else {

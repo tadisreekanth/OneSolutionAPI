@@ -5,6 +5,7 @@
 //
 
 import Foundation
+import OneSolutionUtility
 
 protocol APIEndPoint {
     var path    :   String? { set get }
@@ -27,7 +28,7 @@ extension APIEndPoint {
     var url: URL? {
         guard let base = APIClient.shared?.route?.value else { return nil }
         guard let urlString = path,
-              let url = URL(string: base + "/" + urlString)
+              let url = URL(string: [base, urlString].joinedUrl)
         else { return nil }
         return url
     }

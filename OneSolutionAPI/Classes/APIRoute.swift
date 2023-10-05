@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OneSolutionUtility
 
 public protocol APIRoute: AnyObject {
     var host: String { get }
@@ -17,12 +18,6 @@ public protocol APIRoute: AnyObject {
 
 public extension APIRoute {
     var value: String {
-        return host + endPoint
+        return [host, endPoint].joinedUrl
     }
-}
-
-
-public protocol APIPath: AnyObject {
-    var login: String { get }
-    var graphData: String { get }
 }
