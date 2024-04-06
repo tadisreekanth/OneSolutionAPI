@@ -10,26 +10,30 @@ import Foundation
 public protocol APIPath: AnyObject {
     var login: String { get }
     
-    //Home
-    var graphData: String { get }
+    var dashboard: DashboardPath { get }
     
-    //Process Work order
-    var workOrders: String { get }
+    var processWorkOder: ProcessWorkOrderPath { get }
     
     var inventoryAudit: InventoryAuditPath { get }
     
     var generalPORLocation: GeneralPORLocationPath { get }
 }
 
+public protocol DashboardPath {
+    var graphData: String { get }
+}
+
+public protocol ProcessWorkOrderPath {
+    var workOrders: String { get }
+}
+
 public protocol InventoryAuditPath {
-    
     var siteGroup: String { get }
     
     var save: String { get }
 }
 
 public protocol GeneralPORLocationPath {
-    
     var serialDetails: String { get }
     var previousVinDetails: String { get }
     

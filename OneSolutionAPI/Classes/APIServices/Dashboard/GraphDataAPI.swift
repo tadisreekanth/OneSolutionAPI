@@ -16,7 +16,7 @@ public extension HomeAPI {
         "\(UserData.shared.user.userID ?? 0)"
     }
     private var endPoint: AbstractAPIEndPoint {
-        return AbstractAPIEndPoint(path: APIClient.shared?.path?.graphData ?? "",
+        return AbstractAPIEndPoint(path: APIClient.shared?.path?.dashboard.graphData ?? "",
                                    method: .POST,
                                    body: ["userId": userId])
     }

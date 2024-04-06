@@ -17,7 +17,7 @@ public extension ProcessWorkOrderAPI {
         var body = params
         body?["userId"] = userId
         
-        let endPoint = AbstractAPIEndPoint(path: APIClient.shared?.path?.workOrders ?? "",
+        let endPoint = AbstractAPIEndPoint(path: APIClient.shared?.path?.processWorkOder.workOrders ?? "",
                                            method: .POST,
                                            body: body)
         
