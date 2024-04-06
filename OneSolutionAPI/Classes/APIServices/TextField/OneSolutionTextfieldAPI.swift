@@ -17,7 +17,7 @@ public extension OneSolutionTextFieldAPI {
     func fetchData(with request: OneSolutionRequest) async -> Result<OneSolutionTextFieldModel, ResultError> {
         let endPoint = AbstractAPIEndPoint(path: request.url,
                                            method: .POST,
-                                           body: request.reqParams as? [String : Any])
+                                           body: request.reqParams)
         switch await self.callAPI(endPoint: endPoint) {
         case .success(let responseData):
             guard let data = responseData else {

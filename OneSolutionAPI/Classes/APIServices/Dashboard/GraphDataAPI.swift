@@ -27,14 +27,18 @@ public extension HomeAPI {
             guard let data = data else {
                 return .failure(.unknown)
             }
-            if let model = data.decode(GraphData.self) {
+            if let model = try? data.decode(GraphData.self).get() {
                 return .success(model)
-            } else if let model = data.lowerCasedKeysData.decode(GenericModel.self) {
-                if let errorMessage = model.message {
-                    //show alert
-                    return .failure(.errorMessage(errorMessage))
+            } else {
+                switch data.lowerCasedKeysData.decode(GenericModel.self) {
+                case .success(let model):
+                    if let errorMessage = model.message {
+                        //show alert
+                        return .failure(.errorMessage(errorMessage))
+                    }
+                case .failure(let error):
+                    return .failure(.errorMessage(error.localizedDescription))
                 }
-                return .failure(.decode)
             }
             return .failure(.unknown)
         case .failure(let error):

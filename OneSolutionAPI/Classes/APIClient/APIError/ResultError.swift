@@ -11,6 +11,7 @@ public enum ResultError: Error {
     case invalidURL
     case decode
     case noResponse
+    case noData
     case connectionReset
     case unknown
     case errorMessage(String)

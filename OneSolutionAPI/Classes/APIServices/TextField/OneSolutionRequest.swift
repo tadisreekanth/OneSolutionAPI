@@ -10,7 +10,7 @@ import Foundation
 public struct OneSolutionRequest {
     
     public var url = ""
-    public var reqParams: NSDictionary?
+    public var reqParams: [String: Any]?
     public var searchKey: String?
     
     public var responseObject: NSDictionary?
@@ -19,11 +19,11 @@ public struct OneSolutionRequest {
     
     public init() {
         url = ""
-        reqParams = NSDictionary ()
+        reqParams = [:]
         searchKey = ""
     }
     
-    public init (url_String: String, requestParams: NSDictionary, searchValueKey: String) {
+    public init(url_String: String, requestParams: [String: Any], searchValueKey: String) {
         url = url_String
         reqParams = requestParams
         searchKey = searchValueKey
@@ -32,15 +32,12 @@ public struct OneSolutionRequest {
 
 public extension OneSolutionRequest {
     
-    mutating func updateRequestParams (requestParams: NSDictionary) {
+    mutating func updateRequestParams(requestParams: [String: Any]) {
         reqParams = requestParams
     }
     
-    mutating func update (key: String, value: Any) {
-        if let params = reqParams?.mutableCopy() as? NSMutableDictionary {
-            params.setValue(value, forKey: key)
-            reqParams = params as NSDictionary
-        }
+    mutating func update(value: Any, for key: String) {
+        reqParams?[key] = value
     }
     
     mutating func setReponse (_ serviceResponse: NSDictionary?) -> Void {
@@ -51,7 +48,7 @@ public extension OneSolutionRequest {
         }
     }
     
-    mutating func setSelectedObject (_ seleted: OneSolutionModel?) -> Void {
+    mutating func update(_ seleted: OneSolutionModel?) -> Void {
         if let obj = seleted {
             self.selectedObject = obj
         }else {

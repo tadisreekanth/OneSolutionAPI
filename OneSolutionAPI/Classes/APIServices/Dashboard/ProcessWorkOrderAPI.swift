@@ -26,9 +26,9 @@ public extension ProcessWorkOrderAPI {
             guard let data = data else {
                 return .failure(.unknown)
             }
-            if let model = data.decode(WorkOrderModel.self), let workOrders = model.workOrders {
+            if let model = try? data.decode(WorkOrderModel.self).get(), let workOrders = model.workOrders {
                 return .success(workOrders)
-            } else if let model = data.lowerCasedKeysData.decode(GenericModel.self) {
+            } else if let model = try? data.lowerCasedKeysData.decode(GenericModel.self).get() {
                 if let errorMessage = model.message {
                     //show alert
                     return .failure(.errorMessage(errorMessage))

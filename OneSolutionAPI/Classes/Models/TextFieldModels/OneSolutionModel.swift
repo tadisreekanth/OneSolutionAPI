@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import OneSolutionUtility
 
 public protocol OneSolutionModel: Decodable {
     var uuid: UUID { get set }
@@ -14,4 +15,13 @@ public protocol OneSolutionModel: Decodable {
     var params: [String: QuantumValue]? { get set }
     
     init(dict: [String: QuantumValue])
+}
+
+public extension OneSolutionModel {
+    var displayName: String {
+        if let name = self.name {
+            return name
+        }
+        return self.params?.compactMap({ $0.value.stringValue }).joinedLine ?? ""
+    }
 }

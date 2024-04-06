@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import OneSolutionUtility
 
 protocol AbstractAPI: APIService {
     @available(iOS 13.0.0, *)
@@ -51,9 +52,9 @@ extension AbstractAPI {
             return .success(decryptedData)
         case .failure(let error):
             switch error {
-            case .errorMessage(let errorMessage): break
-//                print(log: endPoint.url?.absoluteString ?? "")
-//                print(log: errorMessage)
+            case .errorMessage(let errorMessage):
+                print(log: endPoint.url?.absoluteString ?? "")
+                print(log: errorMessage)
             default:
                 break
             }

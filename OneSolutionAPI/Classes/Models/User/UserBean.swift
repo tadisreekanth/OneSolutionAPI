@@ -11,9 +11,11 @@ import OneSolutionUtility
 public class UserBean: ObservableObject {
     
     @Published public var userID: Int?
-    public var userDetails = UserDetails ()
+    @Published public var userDetails: UserDetails
     
-    public init() { }
+    public init() { 
+        userDetails = UserDetails()
+    }
     
     public func update(with login: Login) {
         userID = login.userId

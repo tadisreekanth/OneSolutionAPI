@@ -41,14 +41,17 @@ public extension LoginAPI {
         switch await self.callAPI(endPoint: endPoint) {
         case .success(let data):
             guard let data = data else { return .failure(.unknown) }
-            if let model = data.decode(Login.self), model.statusCode == 200 {
+            if let model = try? data.decode(Login.self).get(), model.statusCode == 200 {
                 return .success(model)
-            } else if let model = data.lowerCasedKeysData.decode(GenericModel.self) {
+            }
+            switch data.lowerCasedKeysData.decode(GenericModel.self) {
+            case .success(let model):
                 if let errorMessage = model.message {
                     //show alert
                     return .failure(.errorMessage(errorMessage))
                 }
-                return .failure(.decode)
+            case .failure(let error):
+                return .failure(.errorMessage(error.localizedDescription))
             }
             return .failure(.unknown)
         case .failure(let error):
